@@ -1,0 +1,29 @@
+vectores hay que hacer #include <vector>
+
+nos permite trabajar como si fuera una cola, pila o lista.
+para declararlo ---->  vector<tipo> nombre ---->inicialmente longitud cero si no le pasamos ningun parametro
+vector<int> mivector(tamaño,inicializacion)----->vector<int>mivector(10,1) inicializa las diez posiciones a 1
+si no le paso el segundo parametro lo rellena segun el constructor del tipo base que le haya pasado.
+se puede modificar el tamaño en timepo de ejecucion cosa que en arrays no.
+
+para consultar los elementos del vector trabajamos como si fuera un array con mivector[i].
+
+los vectores tienen una funcion especial llamado push_back----> for(i=0;i<10;i++){mivector.push_back(indice)}
+esto añade en la parte trasera del vector un elemento nuevo de valor que se le indique.
+
+para mostrar los vectores usar mivector.size();
+
+operacion mivector.back() devuelve el ultimo elemento.
+
+para eliminar la ultima posicion del vector usamos pop_back();
+
+todo esto hace que los vectores sean una pila.
+
+Ahora para hacer una cola, tenemos que buscar funciones que meta en el ultimo lugar push_back y elimine de la
+primera posicion en lugar de la ultima.
+para ello tenemos la operacion front() que devuelve la primera posicion, igual que back() pero muestra el principio
+para eliminar elementos del principio usaremos mivector.erase(mivector.begin())
+erase elimina elementos de cualquier posicion y hay que pasarle un iterador, si quiero eliminar del comienzo pongo begin 
+es un iterador a la primera posicion.
+
+operacion insert(valor, iterador) para insertar en una posicion especifica.

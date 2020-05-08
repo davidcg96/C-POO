@@ -1,0 +1,53 @@
+HERENCIA
+
+herencia publica: se erada de una clase(padre)a una clase(hija)todo los metodos y atributos.
+la hija puede usar las funciones de la clase padre y las propias definidas en la hija, pero los atributos privados de la
+clase padre no los puede modificar la hija con las funciones propias solo con las funciones heredadas.
+
+si quiero que la hija pueda modificar los atributos privados debo declarar estos atributos en lugar de privados como 
+Protected.
+
+la clase hija puede redefinir metodos de la clase padre.
+si en la clase padre el metodo tiene delante virtual significa que mas adelante vendra la implementacion y si ademas
+viene virtual metodo=0 significa que la implementacion se da en la clase hija.
+
+si declaro un puntero figure* pp1--->puntero a clase figura.
+pp1=&p1; al puntero le asigno la direccion de memoria de la clase hija punto.
+pp1->draw(); hago la funcion draw pero esta funcion es el metodo del padre o de la hija?
+
+esto se hace en tiempo de compilacion luego es enlazado estatico y tiene prioridad el tipo al que apunta el puntero
+y se ejecutaría el draw() de la clase padre.
+
+pero si el metodo draw() lo declaro como virtual en la clase padre, se ejecuta enlazado dinamico y el puntero hace 
+el draw() de la clase punto.
+
+IMPORTANTE:
+al tener en una clase metodos vituales puros: virtual metodo=0; no puedo declarme objetos de esta clase porque no tienen
+implementacion sus metodos. porque un objeto recibe sus metodos pero el metodo draw no tiene implementacion luego da error
+
+a este tipos de clase se les llaman clases abstractas.
+no puedo hacer figure p1;
+pero si un puntero a figura -> figure*pp1; porque el puntero puede decidir que draw usar de hija o padre.
+
+CLASES AMIGAS
+
+puedo declarar metodos amigos, tengo dos clases alpha y beta, donde alpha es el padre y beta la hija.
+
+puedo declarar una funcion-> friend int famiga(alpha,beta) donde solo pongo el tipo.
+en beta tengo que declarar tambien friend int famiga(alpha,beta);
+para que esto no de error hay que declarar una clase vacia antes de alpha, class beta; como los pnodo.
+
+implementacion int famiga(alpha a, beta b) como no es un metodo no hay que ponerle tipo delante.
+
+puedo definir una clase amiga entera poniendo friend class beta en alpha, beta puede no ser hija.
+
+VARIABLES DE INSTANCIA O VARIABLES DE CLASE
+
+las variables de instancia son las que venimos viendo.
+
+variable de clase -> static  tipo nombre_variable
+el valor de la variable static persiste, actua como variable global pero solo se puede ver en el ambito local definido
+no esta almacenada en cada uno de los objetos sino que es comun para todos los objetos. puede servir para llevar
+la cuenta de cuantos objetos de tipo class prueba he definido.
+
+ademas para tranajar con variables estaticas debo declararlas fuera, int prueba::contador duera del main y fuera de la clase
